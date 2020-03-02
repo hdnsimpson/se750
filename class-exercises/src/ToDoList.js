@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './todolist.module.css';
 
 class ToDoList extends React.Component {
     constructor(props) {
@@ -25,7 +26,7 @@ class ToDoList extends React.Component {
     }
 
     emptyList() {
-        return <p>There are no to-do items!</p>
+        return <p className={styles.todolist}>There are no to-do items!</p>
     }
 
     populatedList() {
@@ -34,7 +35,7 @@ class ToDoList extends React.Component {
         };
 
         return (
-            <ul>
+            <ul className={styles.todolist}>
                 {this.props.items.map((item, index) => <li key={index} onClick={() => this.toggleComplete(index)} style={this.state.items[index].complete ? styleComplete : null}>{item}</li>)}
             </ul>
         );
