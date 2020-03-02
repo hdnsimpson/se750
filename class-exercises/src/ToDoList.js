@@ -30,16 +30,12 @@ class ToDoList extends React.Component {
 
     populatedList() {
         const styleComplete = {
-            color: 'green'
+            textDecoration: 'line-through'
         };
-
-        const styleIncomplete = {
-            color: 'red'
-        }
 
         return (
             <ul>
-                {this.props.items.map((item, index) => <li key={index} onClick={() => this.toggleComplete()} style={this.state.items[index].complete ? styleComplete : styleIncomplete}>{item}</li>)}
+                {this.props.items.map((item, index) => <li key={index} onClick={() => this.toggleComplete(index)} style={this.state.items[index].complete ? styleComplete : null}>{item}</li>)}
             </ul>
         );
     }
